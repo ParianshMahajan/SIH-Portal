@@ -356,7 +356,7 @@ const Create = () => {
                   <div className="formrow">
                     <input onChange={(e) => handle(e)} placeholder="Phone Number" value={data.PhoneNumber} type="number" id="PhoneNumber" name="PhoneNumber" required />
 
-                    <input onChange={(e) => handle(e)} placeholder="Tech Stack" value={data.TechStack} type="text" id="TechStack" name="TechStack" required />
+                    <input onChange={(e) => handle(e)} placeholder="Requiered Tech Stack" value={data.TechStack} type="text" id="TechStack" name="TechStack" required />
                   </div>
                   <button type="submit" className="join submit" onClick={(e) => submit(e)}>
                     {"Submit"}

@@ -25,6 +25,12 @@ const TeamSchema = mongoose.Schema({
     female:{
         type: Boolean,
         default:false 
+    },
+    TechStack:{
+        type: String,
+    },
+    PhoneNumber:{
+        type: String,
     }
 })
 let Team = mongoose.model('Team', TeamSchema);

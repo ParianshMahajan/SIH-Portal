@@ -47,14 +47,27 @@ const Teams = () => {
               </div>
             </div>
           </div>
-            <div className="leaderboardcont">{
-                data.map((e)=>{
+
+            <div className="leaderboardcont" style={{height:"110px",marginBottom:"0%",overflow:"hidden"}}>
+            <div className="team" style={{border:"none",boxShadow:"none"}}>
+                <h5 className="teamname">TeamName</h5>
+                <h5 className="teamname" style={{width:"25%"}}>{`Required Tech Stack`}</h5>
+                <h5 className="teamname"style={{width:"25%"}}>{`Contact`}</h5>
+                <h5 className="pts" >{`Members`}</h5>
+                <h5 className="time" style={{width:"15%",lineHeight:"27px"}}>{'At least 1 Female Member'}</h5>
+            </div>        
+            </div>
+            <div className="leaderboardcont">
+                          
+                {data.map((e)=>{
                   return(
 
                     <div className="team">
                         <h5 className="teamname">{e.TeamName}</h5>
-                        <h5 className="pts">{`${e.Members.length}/6`}</h5>
-                        <h5 className="time">{e.female?"Have F":"No F"}</h5>
+                        <h5 className="teamname">{`${e.TechStack}`}</h5>
+                        <h5 className="teamname"style={{width:"25%",fontSize:"18px"}}>{`+91 ${e.PhoneNumber}`}</h5>
+                        <h5 className="pts" >{`${e.Members.length}/6`}</h5>
+                        <h5 className="time" style={{width:"20%"}}>{e.female?"Yes":"No "}</h5>
                     </div>            
                       )
                 }) 

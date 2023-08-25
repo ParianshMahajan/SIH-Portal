@@ -39,7 +39,9 @@ module.exports.createTeam=async function createTeam(req,res){
                 TeamName:TeamName,
                 Members:[],
                 Password:data.Password,
-                Code:Code
+                Code:Code,
+                TechStack:data.TechStack,
+                PhoneNumber:data.PhoneNumber,
         }
         if(data.Gender=="Female"){
             teamobj.female=true;
@@ -359,13 +361,13 @@ module.exports.fetchTeams=async function fetchTeams(req,res){
                 return e;
             }
         })
+
         
         for(let i in teams){
             teams[i].female=false;
             for(let j in teams[i].Members){
                 let user=await User.findOne({_id:teams[i].Members[j]});
                 if(user.Gender=='Female'){
-                    console.log("yayy");
                     teams[i].female=true;
                 }
             }

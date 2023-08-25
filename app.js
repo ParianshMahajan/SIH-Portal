@@ -6,6 +6,7 @@ const cookieParser=require('cookie-parser');
 const db=require('./config/db.js');
 const userRouter = require('./routers/userRouter.js');
 const dotenv = require("dotenv");
+const app=express();
 
 
 
@@ -19,7 +20,6 @@ const options = {
 const server = https.createServer(options,app);
 
 
-const app=express();
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());  

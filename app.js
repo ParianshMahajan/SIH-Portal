@@ -5,7 +5,6 @@ const cors=require('cors');
 const cookieParser=require('cookie-parser');
 const db=require('./config/db.js');
 const userRouter = require('./routers/userRouter.js');
-const path = require('path');
 const dotenv = require("dotenv");
 
 

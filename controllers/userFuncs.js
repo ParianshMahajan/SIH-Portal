@@ -4,6 +4,7 @@ const crypto=require('crypto')
 
 const Team=require('../models/Team.js')
 const User=require('../models/User.js')
+const { TeamMember } = require('discord.js')
 
 
 
@@ -192,6 +193,7 @@ module.exports.joinTeam=async function joinTeam(req,res){
 
         if(data.Gender=="Female"){
             team.female=true;
+            await team.save();
         }
 
 

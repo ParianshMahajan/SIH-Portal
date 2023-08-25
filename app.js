@@ -5,9 +5,19 @@ const cors=require('cors');
 const cookieParser=require('cookie-parser');
 const db=require('./config/db.js');
 const userRouter = require('./routers/userRouter.js');
+const path = require('path');
+const dotenv = require("dotenv");
 
 
 
+const https = require('https');
+
+const options = {
+  key: fs.readFileSync('privkey.pem'),
+  cert: fs.readFileSync('cert.pem')
+};
+
+const server = https.createServer(options,app);
 
 
 const app=express();
@@ -28,7 +38,8 @@ app.use('/register',userRouter);
 
 
 
-const port = process.env.PORT || 3001;
-const host = '127.0.0.1';
 
-app.listen(port, host, () => console.log(`http://${host}:${port}`));
+
+server.listen(process.env.PORT, '0.0.0.0', () => {
+    console.log('Server running');
+});

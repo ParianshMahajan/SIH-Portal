@@ -390,22 +390,31 @@ select:-webkit-autofill:focus {
     font-size: 200%;
   }
 }
-
-.leaderboardcont {
-  margin-top: 3%;
+.kuchbhi {
   width: 100%;
-  height: 700px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 2;
-  margin-left: 15%;
-  overflow-y: auto;
-  overflow: hidden;
+  justify-content: center;
 }
 
-p,
+.leaderboardcont {
+  margin-top: 3%;
+  width: 100%;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.leaderboardconthead {
+  font: 10px;
+  width: 100%;
+  padding: 0 10px;
+}
+
 h5,
 h1 {
   margin: 0;
@@ -420,40 +429,16 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 15px;
+  margin-top: 30px;
   margin-bottom: 5px;
   padding: 12px 0;
   font-family: macer;
-  border: 4px solid rgb(0, 217, 255);
+  border: 2px solid rgb(0, 217, 255);
   box-shadow: 0 0 10px 5px rgb(0, 31, 36);
-}
-
-.team:last-child {
-  margin-bottom: 0px;
-}
-
-.team::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: aqua;
-  position: absolute;
-
-  background: rgba(24, 24, 24, 0.251);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(2px);
-  border: 4px solid rgb(0, 217, 255);
-  box-shadow: 0 0 10px 5px rgb(0, 31, 36);
-
-  border-radius: 7px;
-
-  z-index: -1;
-
-  transform: skewX(-30deg);
 }
 
 .teamname {
-  width: 40%;
+  width: 45%;
   font-size: 15px;
   text-align: center;
 }
@@ -463,7 +448,7 @@ h1 {
   text-align: center;
 }
 .time {
-  width: 40%;
+  width: 10%;
   text-align: center;
 }
 
@@ -485,15 +470,5 @@ h1 {
 }
 
 .teamphone {
-  font-size: 15px;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  font-size: 10px;
 }

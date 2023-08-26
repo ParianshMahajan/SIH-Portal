@@ -4,7 +4,6 @@ const crypto=require('crypto')
 
 const Team=require('../models/Team.js')
 const User=require('../models/User.js')
-const { TeamMember } = require('discord.js')
 
 
 
@@ -48,10 +47,13 @@ module.exports.createTeam=async function createTeam(req,res){
             teamobj.female=true;
         }
 
-        let team=await Team.create(teamobj);
         let user=await User.create(leader);
-        team.Members.push(user._id);
-        await team.save();
+        let team;
+        if(user){
+            team=await Team.create(teamobj);
+            team.Members.push(user._id);
+            await team.save();
+        }
 
 
 
@@ -193,7 +195,6 @@ module.exports.joinTeam=async function joinTeam(req,res){
 
         if(data.Gender=="Female"){
             team.female=true;
-            await team.save();
         }
 
 

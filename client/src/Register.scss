@@ -128,3 +128,13 @@ $black: #282936;
     justify-self: center;
   }
 }
+
+
+@media only screen and (max-width: 500px) {
+  .learn-more{
+    margin-top: -3%;
+    scale: 0.75;
+    font-size: 18px;
+  }
+
+}

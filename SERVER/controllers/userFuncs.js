@@ -191,21 +191,13 @@ module.exports.joinTeam=async function joinTeam(req,res){
         }
 
         if(data.Gender=="Female"){
-            member.female=true;
+            team.female=true;
         }
-
-
-        let isFemale=false;
-        team.Members.map((e)=>{
-            if(e.Gender=='Female'){
-                isFemale=true;
-            }
-        })
 
 
         let user;
         if(team.Members.length==5){
-            if(isFemale){
+            if(team.female){
                 user=await User.create(member);
                 team.Members.push(user._id)
                 await team.save()
@@ -214,23 +206,12 @@ module.exports.joinTeam=async function joinTeam(req,res){
                     message:"Member registered successfully",
                 });
             }
-            else{
-                if(member.Gender=='Female'){
-                    user=await User.create(member);
-                    team.Members.push(user._id)
-                    await team.save()
-                    res.json({
-                        status:true,
-                        message:"Member registered successfully",
-                    });
-                }
                 else{
                     res.json({
                         status:false,
                         message:"At least 1 female member is required",
                     });
-                }
-            }
+                } 
         }
         else if(team.Members.length<5){
                 user=await User.create(member);

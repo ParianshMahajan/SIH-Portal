@@ -225,7 +225,7 @@ const Create = () => {
     <div className="wrapper">
       <div className="two " id="two">
       <h1 id="registration" className="reg" style={{margin:"6% 0% 0% 0%",letterSpacing:"0px",fontWeight:"1500"}}>SIH</h1>
-      <h1 id="registration" className="reg" style={{margin:"0% 0% 2% 0%",fontSize:"65px",fontWeight:"300"}}>REGISTRATION</h1>
+          <h1 id="registration" className="reg regunder" >REGISTRATION</h1>
         {!disp &&(
         <div className="regform">
         <div className="formrow btcenter" style={{marginBottom:"2%",alignContent:"start"}}>
@@ -392,7 +392,7 @@ const Create = () => {
               <div style={{ display: 'flex', alignItems: 'center',background:'none' }}>
 
                 <br />
-                <input type="text" id="copy" value={`${window.location.protocol}://${window.location.hostname}/register/:${response.Code}`} readOnly />
+                <input type="text" id="copy" value={`${response.Code}`} readOnly />
                 <button onClick={copyURL}><i className="fa fa-clone" aria-hidden="true"></i></button>
               </div>
               {copy && (

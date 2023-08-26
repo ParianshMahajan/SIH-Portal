@@ -86,15 +86,15 @@ const Code = () => {
       <div className="two" id="two">
 
       <h1 id="registration" className="reg" style={{margin:"6% 0% 0% 0%",letterSpacing:"0px",fontWeight:"1500"}}>SIH</h1>
-      <h1 id="registration" className="reg" style={{margin:"0% 0% 2% 0%",fontSize:"65px",fontWeight:"300"}}>REGISTRATION</h1>
+          <h1 id="registration" className=" regunder" >REGISTRATION</h1>
         <div className="regform" >
           <div className="formrow btcenter" >
             <div className="container" id="container">
-              <button class="learn-more" onClick={() => navigate('/register')}>
-                <span class="circle" aria-hidden="true">
-                  <span class="icon arrow"></span>
+              <button className="learn-more" onClick={() => navigate('/register')}>
+                <span className="circle" aria-hidden="true">
+                  <span className="icon arrow"></span>
                 </span>
-                <span class="button-text">Home</span>
+                <span className="button-text">Home</span>
               </button>
             </div>
           </div>

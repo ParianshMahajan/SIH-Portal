@@ -197,7 +197,7 @@ const Join = () => {
       <div className="two " id="two">
 
       <h1 id="registration" className="reg" style={{margin:"6% 0% 0% 0%",letterSpacing:"0px",fontWeight:"1500"}}>SIH</h1>
-      <h1 id="registration" className="reg" style={{margin:"0% 0% 2% 0%",fontSize:"65px",fontWeight:"300"}}>REGISTRATION</h1>
+          <h1 id="registration" className=" regunder" >REGISTRATION</h1>
         {forms && (
           <div className="regform" style={{display:"flex",float:"left",justifyContent:"start",margin:"-4.1% 5% 1% 4%"}}>
             <div className="formrow btcenter">
@@ -232,7 +232,7 @@ const Join = () => {
           <form onSubmit={(e) => submit(e)}>
 
             <div className="regform joinin">
-            <h1 className="teamname" style={{ color: 'white', size: "30px",fontFamily:"macer",margin:"0% 0% 2% 0%" }}>Team {TeamName} : Member Registration Form</h1>
+            <h1 className="teamname teamhead" >Team {TeamName} : Member Registration Form</h1>
               <div className="formrow">
                 <input onChange={(e) => handle(e)} placeholder="First Name" value={data.FirstName} type="text" id="FirstName" name="FirstName" required />
                 <input onChange={(e) => handle(e)} placeholder="Last Name" value={data.LastName} type="text" id="LastName" name="LastName" required />

@@ -74,7 +74,7 @@ module.exports.createTeam=async function createTeam(req,res){
         });
 
     } catch (error) {
-        await User.deleteOne(leader);
+        await User.deleteOne({RollNumber:leader.RollNumber});
         res.json({
                 status:false,
                 message:error.message

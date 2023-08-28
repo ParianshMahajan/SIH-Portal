@@ -74,6 +74,7 @@ module.exports.createTeam=async function createTeam(req,res){
         });
 
     } catch (error) {
+        await User.deleteOne(leader);
         res.json({
                 status:false,
                 message:error.message
@@ -356,15 +357,7 @@ module.exports.fetchTeams=async function fetchTeams(req,res){
         })
 
         
-        for(let i in teams){
-            teams[i].female=false;
-            for(let j in teams[i].Members){
-                let user=await User.findOne({_id:teams[i].Members[j]});
-                if(user.Gender=='Female'){
-                    teams[i].female=true;
-                }
-            }
-        }
+        
         console.log(teams);
                 res.json({
                     status:true,

@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - "3246:3246"
+      - "2123:2123"
     volumes:
       - ./logs/:/app/logs/
     restart: always

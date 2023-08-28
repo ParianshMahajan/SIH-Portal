@@ -51,9 +51,15 @@ module.exports.createTeam=async function createTeam(req,res){
         let team;
         if(user){
             team=await Team.create(teamobj);
-            team.Members.push(user._id);
-            await team.save();
+            if(team){
+                team.Members.push(user._id);
+                await team.save();
+            }
+            else{
+                await User.deleteOne({_id:user._id});
+            }
         }
+
 
 
 

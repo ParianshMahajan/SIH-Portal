@@ -7,26 +7,29 @@ const User=require('../models/User.js')
 
 
 
+
+
 module.exports.createTeam=async function createTeam(req,res){
+    let data=(req.body)
+
+    let TeamName=data.TeamName
+
+    let leader={
+        Name:data.Name,
+        Email:data.Email,
+        Password:data.Password,
+        ConfirmPassword:data.ConfirmPassword,
+        RollNumber:data.RollNumber,
+        PhoneNumber:data.PhoneNumber,
+        Branch:data.Branch,
+        Year:data.Year,
+        Role:"Leader",
+        Gender:data.Gender,
+        TeamName:TeamName,
+        TechStack:data.TechStack
+    }
+
     try {
-        let data=(req.body)
-
-        let TeamName=data.TeamName
-
-        let leader={
-            Name:data.Name,
-            Email:data.Email,
-            Password:data.Password,
-            ConfirmPassword:data.ConfirmPassword,
-            RollNumber:data.RollNumber,
-            PhoneNumber:data.PhoneNumber,
-            Branch:data.Branch,
-            Year:data.Year,
-            Role:"Leader",
-            Gender:data.Gender,
-            TeamName:TeamName,
-            TechStack:data.TechStack
-        }
 
 
 
@@ -62,7 +65,6 @@ module.exports.createTeam=async function createTeam(req,res){
 
 
 
-
         res.json({
             message:"Team Registered Successfully",
             status:true,
@@ -72,12 +74,14 @@ module.exports.createTeam=async function createTeam(req,res){
         });
 
     } catch (error) {
+        await User.deleteOne({Email:leader.Email});
         res.json({
                 status:false,
                 message:error.message
         })
     }
 }
+
 
 
 

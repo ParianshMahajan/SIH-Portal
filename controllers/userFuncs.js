@@ -74,7 +74,6 @@ module.exports.createTeam=async function createTeam(req,res){
         });
 
     } catch (error) {
-        await User.deleteOne({Email:leader.Email});
         res.json({
                 status:false,
                 message:error.message

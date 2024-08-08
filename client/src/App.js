@@ -10,13 +10,11 @@ import NotFound from './Pages/NotFound';
 import './App.css'
 import './Register.scss'
 import Members from './Pages/TeamDetails/Members';
-import Home from './Home/Home';
 
 
 const App = () => {
 
   return (
-    <>
       <Routes>
         <Route path='/' element={<Navigate to="/register" />} />
         <Route path='/register' element={<RegisterNew />} />
@@ -35,7 +33,6 @@ const App = () => {
 
         <Route path="*" element={<NotFound/>} />
       </Routes>
-    </>
   )
 }
 

@@ -1,6 +1,4 @@
 * {
-  margin: 0;
-  padding: 0%;
   background-color: rgba(4, 3, 10, 1);
 }
 
@@ -204,7 +202,7 @@ option {
   text-align: center;
 }
 .msg_contain {
-  width: 100vw;
+  width: 100%;
   height: fit-content;
   display: flex;
   text-align: center;
@@ -222,7 +220,8 @@ option {
   height: 300px;
   border-radius: 65px;
   padding: 50px;
-  max-width: 60%;
+  min-width: 40%;
+  max-width: 70%;
   background: #1d1c2d;
   backdrop-filter: saturate(180%) blur(10px);
   border-radius: 10px;
@@ -235,9 +234,10 @@ option {
 
 .message p {
   color: white;
-  margin-top: 20px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  margin-top: 24px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: macer;
 }
 
 .message input {
@@ -261,7 +261,7 @@ option {
 }
 .congrats {
   color: white;
-  font-size: 30px;
+  font-size: 40px;
   margin-bottom: 20px;
 }
 .FormTitle {
@@ -344,6 +344,7 @@ select:-webkit-autofill:focus {
     cursor: pointer;
   }
   
+
 .regform.joinin {
     width: 100%;
   }
@@ -410,8 +411,7 @@ select:-webkit-autofill:focus {
 
 .leaderboardcont {
   margin-top: 3%;
-  width: 100%;
-  padding: 0 10px;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -420,8 +420,11 @@ select:-webkit-autofill:focus {
 
 .leaderboardconthead {
   font: 10px;
-  width: 100%;
+  width: 95%;
   padding: 0 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 h5,
@@ -433,7 +436,7 @@ h1 {
 
 .team {
   position: relative;
-  width: 100%;
+  width: 95%;
   color: white;
   display: flex;
   align-items: center;
@@ -478,6 +481,19 @@ h1 {
   border: 10px solid #00a1b1;
   border-top: 10px solid #1d1c2d;
   animation: spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .teamphone {
@@ -561,3 +577,10 @@ h1 {
   padding-top: 3%;
 }
 
+
+
+
+.wrapper{
+  height: 100vh;
+  font-family: macer;
+}

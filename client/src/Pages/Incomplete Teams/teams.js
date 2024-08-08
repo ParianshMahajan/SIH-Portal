@@ -46,7 +46,7 @@ const Teams = () => {
             display: "flex",
             float: "left",
             justifyContent: "start",
-            margin: "-4.1% 5% 1% 4%",
+            margin: "-4.1% 5% 1 % 4%",
           }}
         >
           <div className="formrow btcenter ">

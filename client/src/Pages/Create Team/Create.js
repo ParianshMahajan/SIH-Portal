@@ -399,8 +399,6 @@ const Create = () => {
               {copy && (
                 <p>Copied successfully</p>
               )}
-              <p style={{ color: 'white' }} >Share this link with your teammates. The team code has also been sent to your email.
-              </p>
             </div>
           </div>
         }

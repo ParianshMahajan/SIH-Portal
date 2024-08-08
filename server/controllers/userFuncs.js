@@ -264,6 +264,8 @@ module.exports.login=async function login(req,res){
         let team=await Team.findOne({TeamName:data.TeamName})
 
         let users=await User.find({TeamName:data.TeamName})
+        
+
 
         if(team){
             if(team.Password==data.Password){
@@ -339,6 +341,20 @@ module.exports.TeamSubmit=async function TeamSubmit(req,res){
 
 
 
+module.exports.displayTeamLB=async function displayTeamLB(req,res) {
+    try {
+        
+        let team= await team.findOne
+    
+        res.json({
+    
+        });
+    } catch (error) {
+        res.json({
+            message:error.message
+        })
+    }
+}
 
 
 

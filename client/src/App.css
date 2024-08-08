@@ -972,3 +972,8 @@ h1 {
     width: 90vw; /* Width relative to viewport width */
   }
 }
+
+
+.tableHeader{
+  color:#00a1b1;
+}

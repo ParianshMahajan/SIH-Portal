@@ -65,11 +65,11 @@ const Teams = () => {
         <div className="kuchbhi">
           <div className="leaderboardcont">
             <div className="team" style={{ border: "none", boxShadow: "none" }}>
-              <div className="teamname">TeamName</div>
-              <div className="teamname">Tech Stack</div>
-              <div className="teamname">Contact</div>
-              <div className="pts">Members</div>
-              <div className="time">Female Member</div>
+              <div className="teamname tableHeader">TeamName</div>
+              <div className="teamname tableHeader">Tech Stack</div>
+              <div className="teamname tableHeader">Contact</div>
+              <div className="pts tableHeader">Members</div>
+              <div className="time tableHeader">Female Member</div>
             </div>
             {data.map((e) => (
               <div className="team" key={e.TeamName}>

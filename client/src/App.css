@@ -1,5 +1,31 @@
 * {
+  margin: 0;
+  padding: 0;
   background-color: rgba(4, 3, 10, 1);
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(4, 3, 10, 1);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #605f5f;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #605f5f;
+  }
+  
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  
 }
 
 @font-face {
@@ -26,6 +52,7 @@
   font-family: macer;
   font-size: 2cqi;
 }
+
 .button-container {
   display: flex;
   flex-direction: column;
@@ -202,7 +229,7 @@ option {
   text-align: center;
 }
 .msg_contain {
-  width: 100%;
+  width: 100vw;
   height: fit-content;
   display: flex;
   text-align: center;
@@ -220,8 +247,7 @@ option {
   height: 300px;
   border-radius: 65px;
   padding: 50px;
-  min-width: 40%;
-  max-width: 70%;
+  max-width: 60%;
   background: #1d1c2d;
   backdrop-filter: saturate(180%) blur(10px);
   border-radius: 10px;
@@ -234,10 +260,9 @@ option {
 
 .message p {
   color: white;
-  margin-top: 24px;
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-family: macer;
+  margin-top: 20px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .message input {
@@ -261,7 +286,7 @@ option {
 }
 .congrats {
   color: white;
-  font-size: 40px;
+  font-size: 30px;
   margin-bottom: 20px;
 }
 .FormTitle {
@@ -278,10 +303,10 @@ option {
   display: flex;
 }
 
-.register {
+/* .register {
   margin-right: 35%;
 }
-
+ */
 .teamname {
   font-size: 28px;
   width: 100%;
@@ -318,7 +343,9 @@ select:-webkit-autofill:focus {
 
   .navmenu {
     display: flex;
-    margin-right: 5%;
+    /* margin-right: 5%; */
+    justify-content: center;
+    width: 100%;
   }
 
   .row {
@@ -329,8 +356,9 @@ select:-webkit-autofill:focus {
   }
 
   .register {
-    margin-right: 15%;
-    margin-left: -10%;
+    /* margin-right: 15%;
+    margin-left: -10%; */
+    margin:0;
   }
 
   .demo {
@@ -344,7 +372,6 @@ select:-webkit-autofill:focus {
     cursor: pointer;
   }
   
-
 .regform.joinin {
     width: 100%;
   }
@@ -400,7 +427,7 @@ select:-webkit-autofill:focus {
     font-size: 200%;
   }
 }
-.kuchbhi {
+/* .kuchbhi {
   width: 100%;
 
   display: flex;
@@ -411,7 +438,8 @@ select:-webkit-autofill:focus {
 
 .leaderboardcont {
   margin-top: 3%;
-  width: 95%;
+  width: 100%;
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -420,13 +448,63 @@ select:-webkit-autofill:focus {
 
 .leaderboardconthead {
   font: 10px;
-  width: 95%;
+  width: 100%;
   padding: 0 10px;
+}
+ */
+
+ /* Center the table container */
+.kuchbhi {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
+.leaderboardcont {
+  width: 90%; /* Adjust width to make it responsive */
+  max-width: 1200px; /* Set a max-width for larger screens */
+  margin: 2rem auto; /* Center horizontally and add top/bottom margins */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Reset the background color and box shadow for the table rows */
+.team {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping of text if necessary */
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: none;
+  background-color: transparent;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+/* Adjust the styles for table columns */
+.teamname,
+.pts,
+.time {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+  .teamname,
+  .pts,
+  .time {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+
+  .leaderboardcont {
+    width: 95%; /* Ensure it fits within smaller viewports */
+  }
+}
 h5,
 h1 {
   margin: 0;
@@ -436,7 +514,7 @@ h1 {
 
 .team {
   position: relative;
-  width: 95%;
+  width: 100%;
   color: white;
   display: flex;
   align-items: center;
@@ -445,8 +523,6 @@ h1 {
   margin-bottom: 5px;
   padding: 12px 0;
   font-family: macer;
-  border: 2px solid rgb(0, 217, 255);
-  box-shadow: 0 0 10px 5px rgb(0, 31, 36);
 }
 
 .teamname {
@@ -481,19 +557,6 @@ h1 {
   border: 10px solid #00a1b1;
   border-top: 10px solid #1d1c2d;
   animation: spin 1s linear infinite;
-}
-
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  50%{
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 .teamphone {
@@ -577,10 +640,178 @@ h1 {
   padding-top: 3%;
 }
 
+/* responsive changes by kaurmanjot20 ************************************************************************************************/
+@media only screen and (max-width: 600px) {
+  /* Adjustments for smaller screens */
+  .timeline {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 10%;
+  }
 
+  .join, .disabled {
+    height: 50px;
+    width: 40%;
+    font-size: 15px;
+  }
 
+  .details {
+    font-size: 15px;
+    margin: 2% 22% 10% 14%;
+    width: 50%;
+  }
 
-.wrapper{
-  height: 100vh;
-  font-family: macer;
+  .formrow > input {
+    width: 80%;
+    font-size: 12px;
+    height: 50px;
+  }
+
+  .formrow > select {
+    width: 80%;
+    font-size: 12px;
+  }
+
+  .submit {
+    width: 50%;
+    font-size: 16px;
+    height: 30px;
+    margin-top: 3%;
+  }
+
+  .teamname, .pts, .time {
+    
+    flex: 1;
+    text-align: center;
+    font-size: 1.5rem;
+    overflow: hidden; /* Ensures content doesn't overflow */
+    
+    white-space: nowrap; /* Prevents text from wrapping */
+  }
+
+  .reg {
+    font-size: 5vw;
+  }
+
+  .regunder {
+    font-size: 20px;
+    letter-spacing: 5px;
+    margin: 1% 0 10% 0;
+  }
+
+  .message {
+    max-width: 95%;
+    height: 400px;
+  }
+
+  .message input {
+    width: 80%;
+  }
+
+  .message button {
+    width: 20%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .hister {
+    margin-top: 20%;
+    margin-left: 25%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .regform.joinin {
+    width: 100%;
+  }
+
+  .row {
+    padding-right: 25px;
+  }
+}
+
+/* Team styling for responsiveness */
+.team {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping of items */
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1000px; /* Adjust as needed */
+  box-shadow: none;
+  background-color: transparent;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+/* Column adjustments for smaller screens */
+.teamname, .pts, .time {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  overflow: visible; /* Ensure content is visible */
+  word-break: break-word; /* Break long words if needed */
+}
+
+@media only screen and (max-width: 600px) {
+  .teamname, .pts, .time {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+    text-align: center;
+    overflow: visible; /* Ensure text is fully visible */
+    word-break: break-word; /* Break long words */
+  }
+
+  .team {
+    padding: 0.5rem; /* Reduce padding */
+    flex-direction: column; /* Stack items vertically if needed */
+  }
+
+  .teamname {
+    width: 100%; /* Full width */
+    font-size: 1rem;
+  }
+
+  .pts {
+    width: 100%; /* Full width */
+    font-size: 1rem;
+  }
+
+  .time {
+    width: 100%; /* Full width */
+    font-size: 1rem;
+  }
+
+  input::placeholder,
+  .regform input::placeholder,
+  textarea::placeholder {
+    font-size: 0.9rem;
+    
+  }
+}
+
+@media (max-width: 600px) {
+  .formrow select {
+    width: 100%; /* Full width on smaller screens */
+    font-size: 1rem; /* Adjust font size */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .formrow > input, 
+  .formrow > select {
+    width: 100vw; /* Ensure full width of the container */
+    font-size: 1rem; /* Adjust font size for better readability */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    padding: 1rem; /* Consistent padding */
+    margin: 1rem 0; /* Consistent margins */
+    border: 1px solid #ccc; /* Optional: Ensure consistent border styling */
+    border-radius: 5px; /* Optional: Consistent border radius */
+  }
+
+  .formrow > select {
+    padding-right: 2rem; /* Adjust for dropdown arrow */
+  }
 }

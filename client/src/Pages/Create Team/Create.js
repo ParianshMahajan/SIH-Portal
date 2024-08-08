@@ -222,6 +222,7 @@ const Create = () => {
   
 
   return (
+    
     <div className="wrapper">
       <div className="two " id="two">
       <h1 id="registration" className="reg" style={{margin:"6% 0% 0% 0%",letterSpacing:"0px",fontWeight:"1500"}}>SIH</h1>

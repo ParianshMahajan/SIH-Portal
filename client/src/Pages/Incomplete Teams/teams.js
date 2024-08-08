@@ -46,7 +46,7 @@ const Teams = () => {
             display: "flex",
             float: "left",
             justifyContent: "start",
-            margin: "-4.1% 5% 1 % 4%",
+            margin: "-4.1% 5% 1% 4%",
           }}
         >
           <div className="formrow btcenter ">
@@ -65,30 +65,26 @@ const Teams = () => {
         </div>
 
         <div className="kuchbhi">
-          <div className="leaderboardconthead">
-            <div className="team" style={{ border: "none", boxShadow: "none" }}>
-              <h5 className="teamname">TeamName</h5>
-              <h5 className="teamname">{`Tech Stack`}</h5>
-              <h5 className="teamname">{`Contact`}</h5>
-              <h5 className="pts">{`Members`}</h5>
-              <h5 className="time">{"Female Member"}</h5>
-            </div>
-          </div>
-          <div className="leaderboardcont">
-            {data.map((e) => {
-              return (
-                <div className="team">
-                  <h5 className="teamname">{e.TeamName}</h5>
-                  <h5 className="teamname">{`${e.TechStack}`}</h5>
-                  <h5 className="teamname">{`${e.PhoneNumber}`}</h5>
-                  <h5 className="pts">{`${e.Members.length}/6`}</h5>
-                  <h5 className="time">{e.female ? "Yes" : "No "}</h5>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+  <div className="leaderboardcont">
+    <div className="team" style={{ border: "none", boxShadow: "none" }}>
+      <div className="teamname">TeamName</div>
+      <div className="teamname">Tech Stack</div>
+      <div className="teamname">Contact</div>
+      <div className="pts">Members</div>
+      <div className="time">Female Member</div>
+    </div>
+    {data.map((e) => (
+      <div className="team" key={e.TeamName}>
+        <div className="teamname">{e.TeamName}</div>
+        <div className="teamname">{e.TechStack}</div>
+        <div className="teamname">{e.PhoneNumber}</div>
+        <div className="pts">{`${e.Members.length}/6`}</div>
+        <div className="time">{e.female ? "Yes" : "No"}</div>
       </div>
+    ))}
+  </div>
+</div>
+    </div>
     </div>
   );
 };

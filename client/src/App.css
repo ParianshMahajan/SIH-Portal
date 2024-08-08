@@ -465,7 +465,7 @@ select:-webkit-autofill:focus {
 }
 
 .leaderboardcont {
-  width: 90%; /* Adjust width to make it responsive */
+  width: 100%; /* Adjust width to make it responsive */
   max-width: 1200px; /* Set a max-width for larger screens */
   margin: 2rem auto; /* Center horizontally and add top/bottom margins */
   display: flex;
@@ -525,6 +525,8 @@ h1 {
   margin-bottom: 5px;
   padding: 12px 0;
   font-family: macer;
+  border: 2px solid #00a1b1;
+  border-radius: 6px;
 }
 
 .teamname {
@@ -561,6 +563,15 @@ h1 {
   animation: spin 1s linear infinite;
 }
 
+@keyframes spin{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
 .teamphone {
   font-size: 10px;
 }
@@ -571,7 +582,7 @@ h1 {
     text-align: center;
     font-family: macer, monospace;
     text-shadow: 0 5px 3px #000000;
-    margin: 1% 0 2% 0;
+    margin: 1% 0 1% 0;
     letter-spacing: 5px;
     font-size: 30px;
     
@@ -976,25 +987,25 @@ h1 {
 
 .tableHeader{
   color:#00a1b1;
+  font-weight: 800;
+  font-size: 1.8rem;
 }
 
 .techStackHeading {
-  width: 100%;
-  font-size: 2rem;
+  margin-inline: 5%;
   text-align: center;
-  font-weight: 800;
   overflow-wrap: break-word;
   white-space: pre-wrap;
   
 }
 
 .teamname.tableHeader.techStackHeading {
-  width: 30%; /* Increase the width of the "Tech Stack" header */
+  width: 60vw;
   
 }
 
 .teamname.techStackHeading {
-  width: 30%; /* Increase the width of the team's tech stack */
+  width: 60%;
   
   white-space: pre-wrap; /* Wrap the text if it's too long */
   overflow-wrap: break-word; /* Break long words if necessary */
@@ -1006,6 +1017,9 @@ h1 {
   width: 17.5%; /* Reduce the width of the other divs to make space for the "Tech Stack" */
   
 }
+
+
+
 @media only screen and (max-width: 600px) {
   .kuchbhi {
     display: flex;
@@ -1027,6 +1041,8 @@ h1 {
     align-items: center;
     width: 100%;
     padding: 1rem 0;
+    border: 2px solid #00a1b1;
+    border-radius: 6px;
   }
 
   .teamname,
@@ -1041,4 +1057,56 @@ h1 {
   .teamname.techStackHeading {
     width: 100%;
   }
+}
+
+
+.techStackHeading{
+  width: 50vw;
+}
+
+.memberRow{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.memberRow.teamname:nth-child(1) , .teamname:nth-child(4){
+  width: 8%;
+}
+
+
+
+.checkDisp{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 4%;
+  width: fit-content;
+  padding: 12px 2%;
+  border: 3px solid #00a1b1;
+  border-radius: 6px;
+  color: white;
+  font-family: macer;
+  font-size: 1.5rem;
+  transition: ease-in-out 150ms;
+  cursor: pointer;
+}
+
+.checkDisp>p{
+  width: 100%;
+  background: inherit;
+}
+
+.deleteIcon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1%;
+  border: 3px solid #00a1b1;
+  border-radius: 6px;
+  color: white;
+  font-family: macer;
+  font-size: 1.5rem;
+  transition:   ease-in-out 150ms;
+  cursor: pointer;
 }

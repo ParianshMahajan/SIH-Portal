@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from "axios";
-import Timeline from '../../Partials/Timeline';
 import { api_url } from "../../config";
+import { Box, Button, Paper, Typography } from '@mui/material';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Members = () => {
 
@@ -25,6 +28,24 @@ const Members = () => {
     Password: ""
   })
 
+  const [checked, setChecked] = useState(false);
+  const [isPending, setPending] = useState(false);
+  async function handleClick(){
+    setPending(true);
+    try {
+      const res = await axios.post(api_url + '/register/looking', {
+        TeamName: details.TeamName,
+        status: !checked
+      });
+      setChecked(!checked);
+      setPending(false);      
+    } 
+    catch (error) {
+      setPending(false);      
+      console.log(error);
+    }
+      
+  }
 
 
   function submit(e) {
@@ -43,6 +64,7 @@ const Members = () => {
           if (res.data.status) {
             setLoader(false);
             setDetails(res.data)
+            setChecked(res.data.submitted);
             setDispError(false)
             form(false)
             setShowMem(true)
@@ -69,34 +91,6 @@ const Members = () => {
 
   }
 
-
-  const url2 = api_url + '/register/login/submit';
-
-
-  function submitTeam(){
-    setShowMem(false);
-    setLoader(true);
-    axios.post(url2, {
-      TeamName: details.TeamName,
-    })
-      .then(res => {
-        if (res.data.status) {
-          setLoader(false);
-          setDispError(false)
-          form(false)
-          showMssg(true)
-        }
-        else {
-          setLoader(false);
-          if(res.data.message)
-          setError(res.data.message);
-          else
-          setError("Something went wrong")
-          setDispError(true)
-        }
-      }
-      )
-  }
 
 
 
@@ -126,6 +120,7 @@ const Members = () => {
 
       <h1 id="registration" className="reg" style={{margin:"6% 0% 0% 0%",letterSpacing:"0px",fontWeight:"1500"}}>SIH</h1>
       
+
        
        
         {joincode &&
@@ -183,6 +178,24 @@ const Members = () => {
           <>
 
         <h1 id="registration" className="regunder" >{details.TeamName}</h1>
+
+        
+          <Box sx={{display:"flex",justifyContent:"center",width:1}} mb={2}>
+            <button
+                className="checkDisp"
+                style={{background:checked ? "#00a1b1" : ""} }
+                onClick={() => {
+                  handleClick();
+                }}
+                disabled={isPending}
+                >
+                  <p>
+                    Looking.For.Members
+                  </p>
+                  {!checked ? <CheckBoxOutlineBlankIcon /> : <CheckBoxIcon />}
+            </button>
+        </Box>
+
         <div className="regform" style={{display:"flex",float:"left",justifyContent:"start",margin:"-8% 5% 0% 4%"}} >
           <div className="formrow btcenter" >
             <div className="container" id="container">
@@ -197,65 +210,27 @@ const Members = () => {
         </div>
 
           <div className="leaderboardcont" style={{marginTop:"0%"}}>{
-            details.Members.map((e)=>{
+            details.Members.map((e,index)=>{
               return(
 
-                <div className="team">
-                        <h5 className="teamname">{e.Name}</h5>
-                        <h5 className="teamname" >{(e.Gender=="Male"?'M':'F')}</h5>
-                        <h5 className="teamname" >{`+91 ${e.PhoneNumber}`}</h5>
-                        <h5 className="pts" >{`Tech Stack : ${e.TechStack}`}</h5>
+                <div className="team memberRow">
+                        <h5 className="teamname" style={{width:"8%"}} >{index}.</h5>
+                        <h5 className="teamname" style={{width:"36%"}} >{e.Name}</h5>
+                        <h5 className="teamname" style={{width:"36%"}}>{e.PhoneNumber}</h5>
+                        <h5 className="teamname" style={{width:"8%"}} >{(e.Gender=="Male"?'M':'F')}</h5>
+                        <button className="deleteIcon">
+                          <DeleteIcon />
+                        </button>
                     </div>                
                 )
                 }) 
               }
               </div>
 
-                {/* Content */}
-        {details.submitted &&
-          <div className='msg_contain' style={{margin:"0% 0%",width:"100%"}}>
-            <p style={{ color: 'white',fontSize:"40px" }}>Your team is already Submitted !!</p> 
-        </div>
-        }
-        {!details.submitted &&
-        <div className="buttccs" style={{display:"flex",justifyContent:"center",width:"100%",marginTop:"-1%"}}>
-          <button type="submit "  className={butt?"join submit":" disabled"} disabled={!butt} onClick={()=>{submitTeam()}}>
-            {"Submit"}
-          </button>
-        </div>
-        }
+        
           </>
         }
 
-
-
-
-
-        
-        {mssg &&
-        <>
-        <h1 id="registration" className="regunder" style={{margin:"0% 0% 1% 0%",fontSize:"65px",fontWeight:"300"}}>TeamName</h1>
-
-           <div className="regform" style={{display:"flex",float:"left",justifyContent:"start",margin:"-8% 5% 0% 4%"}} >
-          <div className="formrow btcenter" >
-            <div className="container" id="container">
-              <button class="learn-more" onClick={() => navigate('/register')}>
-                <span class="circle" aria-hidden="true">
-                  <span class="icon arrow"></span>
-                </span>
-                <span class="button-text">Home</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className='msg_contain' style={{margin:"10% 0%",width:"100%"}}>
-            <div className="message">
-              <p style={{ color: 'white',fontSize:"30px",fontFamily:"macer" }}>Your team has successfully submitted !!</p>
-            </div>
-        </div>
-        </>
-        }
  
 
 

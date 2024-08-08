@@ -1,5 +1,5 @@
 const express=require('express');
-const { createTeam,joinTeam, verifyTeam,info,login,TeamSubmit,fetchTeams,testing } = require('../controllers/userFuncs');
+const { createTeam,joinTeam, verifyTeam,info,login,TeamSubmit,fetchTeams,testing, displayTeamLB } = require('../controllers/userFuncs');
 const crypto=require('crypto');
 const { protectlink } = require('../middleware/protectlink');
 const path = require('path');
@@ -40,6 +40,11 @@ userRouter
 userRouter
 .route('/info')
 .post(info)
+
+
+userRouter
+.route('/looking')
+.post(displayTeamLB)
 
 
 

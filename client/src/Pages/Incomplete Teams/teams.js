@@ -65,16 +65,17 @@ const Teams = () => {
         <div className="kuchbhi">
           <div className="leaderboardcont">
             <div className="team" style={{ border: "none", boxShadow: "none" }}>
+            <div className="teamname tableHeader techStackHeading">Tech Stack</div>
               <div className="teamname tableHeader">TeamName</div>
-              <div className="teamname tableHeader">Tech Stack</div>
               <div className="teamname tableHeader">Contact</div>
               <div className="pts tableHeader">Members</div>
               <div className="time tableHeader">Female Member</div>
             </div>
             {data.map((e) => (
               <div className="team" key={e.TeamName}>
+                <div className="teamname techStackHeading">{e.TechStack}</div>
                 <div className="teamname">{e.TeamName}</div>
-                <div className="teamname">{e.TechStack}</div>
+                
                 <div className="teamname">{e.PhoneNumber}</div>
                 <div className="pts">{`${e.Members.length}/6`}</div>
                 <div className="time">{e.female ? "Yes" : "No"}</div>

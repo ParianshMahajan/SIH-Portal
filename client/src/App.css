@@ -977,3 +977,68 @@ h1 {
 .tableHeader{
   color:#00a1b1;
 }
+
+.techStackHeading {
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 800;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  
+}
+
+.teamname.tableHeader.techStackHeading {
+  width: 30%; /* Increase the width of the "Tech Stack" header */
+  
+}
+
+.teamname.techStackHeading {
+  width: 30%; /* Increase the width of the team's tech stack */
+  
+  white-space: pre-wrap; /* Wrap the text if it's too long */
+  overflow-wrap: break-word; /* Break long words if necessary */
+}
+
+.teamname,
+.pts,
+.time {
+  width: 17.5%; /* Reduce the width of the other divs to make space for the "Tech Stack" */
+  
+}
+@media only screen and (max-width: 600px) {
+  .kuchbhi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .leaderboardcont {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .teamname,
+  .pts,
+  .time {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .teamname.tableHeader.techStackHeading,
+  .teamname.techStackHeading {
+    width: 100%;
+  }
+}

@@ -815,3 +815,158 @@ h1 {
     padding-right: 2rem; /* Adjust for dropdown arrow */
   }
 }
+
+
+
+/* General styles for table and team */
+.team {
+  display: flex;
+  
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1000px; /* Adjust as needed */
+  box-shadow: none;
+  background-color: transparent;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+/* Column adjustments for smaller screens */
+.teamname, .pts, .time {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem; /* Default font size */
+  overflow: visible; /* Ensure content is visible */
+  word-break: break-word; /* Break long words if needed */
+}
+
+@media only screen and (max-width: 1000px) {
+  .teamname, .pts, .time {
+    font-size: 1.2rem; /* Adjust font size for screens 1000px and below */
+  }
+
+  .team {
+    padding: 0.5rem; /* Reduce padding */
+    flex-direction: column; /* Stack items vertically if needed */
+  }
+
+  .teamname {
+    width: 100%; /* Full width */
+    font-size: 1.2rem; /* Adjust font size */
+  }
+
+  .pts {
+    width: 100%; /* Full width */
+    font-size: 1.2rem; /* Adjust font size */
+  }
+
+  .time {
+    width: 100%; /* Full width */
+    font-size: 1.2rem; /* Adjust font size */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .teamname, .pts, .time {
+    font-size: 1rem; /* Further adjust font size for very small screens */
+    text-align: center;
+    overflow: visible; /* Ensure text is fully visible */
+    word-break: break-word; /* Break long words */
+  }
+
+  .team {
+    padding: 0.5rem; /* Reduce padding */
+  }
+
+  .teamname {
+    width: 100%; /* Full width */
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .pts {
+    width: 100%; /* Full width */
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .time {
+    width: 100%; /* Full width */
+    font-size: 1rem; /* Adjust font size */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .reg {
+    margin-top: 5vh; /* 5% of viewport height */
+    margin-bottom: 0;
+    font-size: 2.2rem; /* Increased font size */
+  }
+
+  .regunder {
+    margin: 1% 0 5vh 0; /* Adjust margin for spacing */
+    letter-spacing: 0.3em; /* Responsive letter spacing */
+    font-size: 1.8rem; /* Increased font size */
+  }
+
+  .join {
+    height: 5vh; /* Height relative to viewport height */
+    width: 40vw; /* Width relative to viewport width */
+    font-size: 1.2rem; /* Increased font size */
+  }
+
+  .details {
+    font-size: 1.2rem; /* Increased font size */
+    margin: 2% 5% 5vh 5%; /* Margin with responsive units */
+    width: 90%; /* Adjust width for smaller screens */
+  }
+
+  .formrow > input {
+    width: 80%; /* Relative to parent width */
+    font-size: 1rem; /* Increased font size */
+    height: 5vh; /* Height relative to viewport height */
+  }
+
+  .submit {
+    width: 50vw; /* Width relative to viewport width */
+    font-size: 1.4rem; /* Increased font size */
+    height: 5vh; /* Height relative to viewport height */
+    margin-top: 3vh; /* Margin relative to viewport height */
+  }
+
+  .teamname, .pts, .time {
+    font-size: 1.2rem; /* Increased font size */
+  }
+
+  /* Adjust layout for the Home button */
+  .regform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .formrow.btcenter {
+    margin: 2vh 0; /* Margin relative to viewport height */
+  }
+
+  .container #container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hister {
+    margin-top: 5vh; /* Margin relative to viewport height */
+  }
+
+  .kuchbhi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .leaderboardcont {
+    width: 90vw; /* Width relative to viewport width */
+  }
+}

@@ -7,8 +7,6 @@ const User=require('../models/User.js')
 
 
 
-
-
 module.exports.createTeam=async function createTeam(req,res){
     let data=(req.body)
 
@@ -74,14 +72,13 @@ module.exports.createTeam=async function createTeam(req,res){
         });
 
     } catch (error) {
-        await User.deleteOne({RollNumber:leader.RollNumber});
+        await User.deleteOne({Email:leader.Email});
         res.json({
                 status:false,
                 message:error.message
         })
     }
 }
-
 
 
 
@@ -216,7 +213,9 @@ module.exports.joinTeam=async function joinTeam(req,res){
                 await team.save()
                 res.json({
                     status:true,
+                    TeamName:team.TeamName,
                     message:"Member registered successfully",
+
                 });
             }
                 else{
@@ -232,6 +231,7 @@ module.exports.joinTeam=async function joinTeam(req,res){
                 await team.save()
                 res.json({
                     status:true,
+                    TeamName:team.TeamName,
                     message:"Member registered successfully",
                 });
         }
@@ -267,6 +267,8 @@ module.exports.login=async function login(req,res){
         let team=await Team.findOne({TeamName:data.TeamName})
 
         let users=await User.find({TeamName:data.TeamName})
+        
+        console.log(team);
 
         if(team){
             if(team.Password==data.Password){
@@ -342,6 +344,24 @@ module.exports.TeamSubmit=async function TeamSubmit(req,res){
 
 
 
+module.exports.displayTeamLB=async function displayTeamLB(req,res) {
+    try {
+        
+        let teamns= await Team.findOne({TeamName:req.body.TeamName});
+        teamns.Submitted=req.body.status;
+        await teamns.save();
+        
+        console.log(teamns);
+        res.json({
+            status:true,
+            message:"Team is submitted successfully"
+        });
+    } catch (error) {
+        res.json({
+            message:error.message
+        })
+    }
+}
 
 
 
@@ -349,15 +369,14 @@ module.exports.TeamSubmit=async function TeamSubmit(req,res){
 
 module.exports.fetchTeams=async function fetchTeams(req,res){
     try {
-        let teams=await Team.find({Submitted:false});
+        let teams=await Team.find({Submitted:true});
         teams=teams.filter((e)=>{
             if(e.Members.length!=6){
                 return e;
             }
         })
 
-        
-        
+      
         console.log(teams);
                 res.json({
                     status:true,
@@ -365,9 +384,8 @@ module.exports.fetchTeams=async function fetchTeams(req,res){
                 })
     } 
     catch (error) {
-
+        console.log(error.message);
         res.json({
-            
                 status:false,
                 message:error.message
         })
@@ -376,7 +394,54 @@ module.exports.fetchTeams=async function fetchTeams(req,res){
 }
 
 
+module.exports.deleteMem=async function deleteMem(req,res) {
+    try {
+        let userns=await User.findOne({Email:req.body.Email});
+        let teamns= await Team.findOne({TeamName:req.body.TeamName});
 
+        let index=teamns.Members.indexOf(userns._id);
+        teamns.Members.splice(index,1);
+        await teamns.save();
+        await User.deleteOne({Email:req.body.Email});
+        
+        let isTeamDel=false;
+        if(teamns.Members.length===0){
+            await Team.deleteOne({TeamName:req.body.TeamName});
+            isTeamDel=true;
+        }
+        
+        let users=await User.find({TeamName:req.body.TeamName})
+
+        res.json({
+            status:true,
+            message:"Member deleted successfully",
+            Members:users,
+            isTeamDel:isTeamDel,
+            submitted:teamns.Submitted,
+            TeamName:req.body.TeamName
+        });
+    } catch (error) {
+        res.json({
+            message:error.message
+        })
+    }
+}
+
+
+
+module.exports.testing=async function testing(req,res){
+    try {
+        res.json({
+            
+            message:"Hi"
+    })
+    } 
+    catch (error) {
+
+        
+    }
+
+}
 
 
 

@@ -1,5 +1,5 @@
 const express=require('express');
-const { createTeam,joinTeam, verifyTeam,info,login,TeamSubmit,fetchTeams } = require('../controllers/userFuncs');
+const { createTeam,joinTeam, verifyTeam,info,login,TeamSubmit,fetchTeams,testing, displayTeamLB, deleteMem } = require('../controllers/userFuncs');
 const crypto=require('crypto');
 const { protectlink } = require('../middleware/protectlink');
 const path = require('path');
@@ -9,6 +9,10 @@ const userRouter=express.Router();
 
 //JOIN or CREATE team button page
 userRouter
+.route('/fetch')
+.post(fetchTeams)
+
+userRouter
 .route('/login')
 .post(login)
 
@@ -17,9 +21,6 @@ userRouter
 .post(TeamSubmit)
 
 
-userRouter
-.route('/fetch')
-.post(fetchTeams)
 
 
 //CREATE team LEADER page
@@ -40,6 +41,15 @@ userRouter
 .route('/info')
 .post(info)
 
+
+userRouter
+.route('/looking')
+.post(displayTeamLB)
+
+
+userRouter
+.route('/deleteMem')
+.post(deleteMem)
 
 
 

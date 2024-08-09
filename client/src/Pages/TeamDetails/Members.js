@@ -152,7 +152,7 @@ const Members = () => {
                  <h1 id="registration" className=" regunder" >REGISTRATION</h1>
 
         <div className="regform" style={{display:"flex",float:"left",justifyContent:"start",margin:"-8% 5% 1% 4%"}} >
-          <div className="formrow btcenter" >
+          <div className="formrow btcenter homebtnnew" >
             <div className="container" id="container">
               <button class="learn-more" onClick={() => navigate('/register')}>
                 <span class="circle" aria-hidden="true">

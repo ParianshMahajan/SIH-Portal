@@ -7,7 +7,8 @@ import Join from './Pages/Join Team/Join'
 import Teams from './Pages/Incomplete Teams/teams'
 import RegisterNew from './Pages/RegisterNew'
 import NotFound from './Pages/NotFound';
-import './App.css'
+// import './App.css'
+import './new.css';
 import './Register.scss'
 import Members from './Pages/TeamDetails/Members';
 

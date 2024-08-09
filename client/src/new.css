@@ -1,0 +1,665 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(4, 3, 10, 1);
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: rgba(4, 3, 10, 1);
+      border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #3c3c3c;
+      border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3c3c3c;
+    }
+  }
+  
+  html, body {
+    height: 95%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  @font-face {
+    font-family: macer;
+    src: url("./Fonts/f2.ttf");
+  }
+  
+  @font-face {
+    font-family: cabin;
+    src: url("./Fonts/cabin.ttf");
+  }
+  
+  .join {
+    background-color: #1d1c2d;
+    color: white;
+    transition-duration: 0.5s;
+    width: 25vw;
+    height: 7vh;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    outline: none;
+    border: 0px solid;
+    align-self: center;
+    font-family: macer;
+    font-size: 2cqi;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .join:hover {
+    background-color: #00a1b1;
+  }
+  
+  .details:hover {
+    color: #00a1b1;
+  }
+  
+  .reg {
+    color: white;
+    font-size: 6vw;
+    font-weight: lighter;
+    letter-spacing: 10px;
+    text-align: center;
+    font-family: macer, monospace;
+    text-shadow: 0 5px 3px #000000;
+  }
+  
+  button {
+    background: none;
+  }
+  
+  .timeline {
+    display: flex;
+    width: 25%;
+    margin-left: 37.5%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20%;
+  }
+  
+  .num {
+    background-color: #1d1c2d;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    height: 22px;
+    aspect-ratio: 1;
+    border-radius: 22px;
+  }
+  
+  .num-active {
+    background-color: #00a1b1;
+  }
+  
+  .numSpan {
+    font-family: "cabin";
+    background: none;
+  }
+  
+  .three {
+    height: 100vh;
+    background-color: rgba(4, 3, 10, 1);
+    overflow-x: hidden;
+  }
+  
+  .regform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .formrow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .formrow > input {
+    padding: 20px 45px;
+    background-color: #1D1C2D;
+    border-radius: 10px;
+    outline: 0px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+    font-family: macer;
+    font-size: 20px;
+    color: white;
+  }
+  
+  .formrow.cntr {
+    margin-right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .formrow.cntr > input {
+    margin-right: 0px;
+  }
+  
+  .formrow > input::placeholder {
+    font-family: macer;
+    font-size: 20px;
+  }
+  
+  option {
+    text-align: start;
+  }
+  
+  .formrow > select {
+    padding: 20px 120px;
+    background-color: #1d1c2d;
+    border-radius: 10px;
+    outline: 0px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    text-align: center;
+    font-family: macer;
+    font-size: 20px;
+    color: white;
+  }
+  
+  .formrow > select::placeholder {
+    font-family: macer;
+    font-size: 20px;
+  }
+  
+  .submit {
+    background-color: #00a1b1;
+    margin-top: 30px;
+    height: 50px;
+    cursor: pointer;
+  }
+  
+  .disabled {
+    color: rgba(112, 112, 112, 0.404);
+    transition-duration: 0.5s;
+    width: 25vw;
+    height: 7vh;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    outline: none;
+    border: 0px solid;
+    align-self: center;
+    font-family: macer;
+    font-size: 2cqi;
+    background-color: #08596157;
+    margin-top: 30px;
+    height: 50px;
+  }
+  
+  .submit:hover {
+    background-color: #00a1b1;
+    box-shadow: 0px 0px 15px #00a1b1;
+  }
+  
+  .four {
+    height: 150vh;
+    background-color: rgba(4, 3, 10, 1);
+    overflow-x: hidden;
+  }
+  
+  .error {
+    color: red;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .msg_contain {
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  
+  .teammsg {
+    font-size: 18px;
+    margin-top: 45px;
+    text-align: center;
+    font-family: macer;
+  }
+  
+  .message {
+    height: 300px;
+    border-radius: 65px;
+    padding: 50px;
+    max-width: 60%;
+    background: #1d1c2d;
+    backdrop-filter: saturate(180%) blur(10px);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .message h1,
+  .message p {
+    color: white;
+    margin-top: 20px;
+    background-color: #1d1c2d;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  }
+  
+  .message input {
+    color: white;
+    background-color: transparent;
+    border: white 1px solid;
+    padding: 8px;
+    margin-right: 8px;
+    width: 300px;
+    margin-top: 20px;
+  }
+  
+  .message button {
+    color: white;
+    background-color: rgba(0, 140, 255, 0);
+    border: white 1px solid;
+    margin-top: 20px;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .congrats {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .FormTitle {
+    width: 100%;
+    margin-top: 3vh;
+    text-align: center;
+  }
+  
+  .regform.joinin {
+    margin-top: 25px;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .teamname {
+    font-size: 28px;
+    width: 100%;
+    text-align: center;
+    margin: 0px;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #1d1c2d inset;
+    transition: background-color 5000s rgba(0, 0, 0, 0)-in-out 0s;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .timeline {
+      width: 50%;
+      margin-bottom: 10%;
+      margin-left: 25%;
+    }
+  
+    .navmenu {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  
+    .row {
+      display: flex;
+      padding: 0 5% 0 5%;
+      margin-left: -10%;
+      margin-right: 40px;
+    }
+  
+    .register {
+      margin:0;
+    }
+  
+    .demo {
+      padding-right: 200%;
+    }
+  
+    .message button {
+      color: white;
+      margin-top: 20px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    
+    .regform.joinin {
+      width: 100%;
+    }
+    
+    .row {
+      padding-right: 25px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .hister {
+      margin-top: 20%;
+      margin-left: 25%;
+    }
+  
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  
+    .teamname {
+      font-size: 24px;
+      width: 100%;
+      text-align: center;
+      margin: 0px;
+    }
+  
+    .team {
+      width: 90%;
+      margin-left: 5%;
+      border-radius: 10px;
+      color: white;
+      font-family: macer;
+      padding: 20px;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      background-color: #1d1c2d;
+    }
+  
+    .teamname {
+      font-size: 24px;
+    }
+  
+    .pts {
+      font-size: 22px;
+      font-family: macer;
+    }
+  
+    .hombtn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: #00a1b1;
+      color: white;
+      font-size: 22px;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+    .hombtn:hover {
+      background-color: #008c9e;
+    }
+  
+    .msg_contain {
+      width: 100vw;
+      height: fit-content;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+  
+    .teammsg {
+      font-size: 18px;
+      margin-top: 45px;
+      text-align: center;
+      font-family: macer;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .hombtn {
+      display: block;
+      margin: 10px auto;
+      width: 100%;
+      text-align: center;
+      background-color: #00a1b1;
+      color: white;
+      font-size: 22px;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .hombtn:hover {
+      background-color: #008c9e;
+    }
+  
+    .team {
+      width: 95%;
+      margin-left: 2.5%;
+    }
+  }
+  
+
+
+  /*available teams details*/
+  /* Center the table container */
+.kuchbhi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-transform: uppercase;
+  }
+  
+  .leaderboardcont {
+    width: 90%; /* Adjust width to make it responsive */
+    max-width: 1200px; /* Set a max-width for larger screens */
+    margin: 2rem auto; /* Center horizontally and add top/bottom margins */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tableHeader{
+    color: #008c9e;
+    font-weight: 500;
+  }
+  .teamname.tableHeader.techStackHeading {
+    font-size: 2rem;
+    font-weight: bolder; /* Increase the width of the "Tech Stack" header */
+    
+  }
+  /* Reset the background color and box shadow for the table rows */
+  .team {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of text if necessary */
+    justify-content: space-between;
+    padding: 1rem;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: none;
+    background-color: transparent;
+    margin-bottom: 0.5rem;
+    color: white;
+  }
+  
+  /* Adjust the styles for table columns */
+  .teamname,
+  .pts,
+  .time {
+    flex: 1;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  
+  /* Responsive adjustments */
+  @media only screen and (max-width: 600px) {
+    .teamname,
+    .pts,
+    .time {
+      font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+  
+    .leaderboardcont {
+      width: 95%; /* Ensure it fits within smaller viewports */
+    }
+  }
+  
+  /* Further adjustments for screens 600px and below */
+  @media only screen and (max-width: 1000px) {
+    .team {
+      padding: 0.5rem; /* Reduce padding */
+      flex-direction: column; /* Stack items vertically */
+      width: 80%; /* Full width */
+      
+      margin: 1rem 1rem;
+      margin-left: 1rem;
+    }
+  
+    .teamname, .pts, .time {
+      font-size: 1rem; /* Adjust font size */
+      text-align: center; /* Center the text */
+      margin: 0.3rem 0; /* Reduce space between columns */
+    }
+  
+    /* For two-column layout on screens 600px and below */
+    .leaderboardcont {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Two columns */
+      gap: 1rem; /* Space between columns */
+      width: 100%; /* Full width */
+    }
+  
+    .team {
+      margin: 0; /* Remove margin */
+      border: 1px solid #00a1b1; /* Border around the team */
+      border-radius: 5px; /* Slightly round corners */
+    }
+  
+    /* Further adjust text and input styles */
+    .formrow > input, .formrow > select {
+      width: 100%; /* Full width */
+      font-size: 1rem; /* Adjust font size */
+      box-sizing: border-box; /* Include padding/border in width/height */
+      padding: 1rem; /* Consistent padding */
+      margin: 0.5rem 0; /* Adjust margin */
+    }
+  }
+  
+  
+  /* Responsive styles for screens 600px and below */
+@media only screen and (max-width: 600px) {
+    .team {
+      padding: 0.5rem; /* Reduce padding */
+      flex-direction: column; /* Stack items vertically */
+      width: 100%; /* Full width */
+      margin-bottom: 1rem; /* Increase bottom margin */
+    }
+  
+    .teamname, .pts, .time {
+      font-size: 1rem; /* Adjust font size */
+      text-align: center; /* Center the text */
+      margin: 0.3rem 0; /* Reduce space between columns */
+    }
+  
+    /* Adjust the leaderboard container for a single column layout */
+    .leaderboardcont {
+      display: grid;
+      grid-template-columns: 1fr; /* One column layout */
+      gap: 1rem; /* Space between items */
+      width: 100%; /* Full width */
+    }
+  
+    .team {
+      margin: 0; /* Remove margin */
+      border: 1px solid #00a1b1; /* Border around the team */
+      border-radius: 5px; /* Slightly round corners */
+    }
+  
+    /* Further adjust text and input styles */
+    .formrow > input, .formrow > select {
+      width: 100%; /* Full width */
+      font-size: 1rem; /* Adjust font size */
+      box-sizing: border-box; /* Include padding/border in width/height */
+      padding: 1rem; /* Consistent padding */
+      margin: 0.5rem 0; /* Adjust margin */
+    }
+  }
+  
+  /* Responsive adjustments */
+@media only screen and (max-width: 1000px) {
+  .leaderboardcont {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 1rem; /* Space between columns */
+    width: 100%; /* Full width */
+  }
+
+  .team {
+    padding: 0.5rem; /* Reduce padding */
+    flex-direction: column; /* Stack items vertically */
+    width: 80%; /* Adjust width */
+    margin: 1rem auto; /* Center items horizontally */
+    border: 1px solid #00a1b1; /* Border around the team */
+    border-radius: 5px; /* Slightly round corners */
+  }
+
+  .teamname, .pts, .time {
+    font-size: 1rem; /* Adjust font size */
+    text-align: center; /* Center the text */
+    margin: 0.3rem 0; /* Reduce space between columns */
+  }
+}
+
+/* Responsive styles for screens 600px and below */
+@media only screen and (max-width: 600px) {
+  .leaderboardcont {
+    grid-template-columns: 1fr; /* One column layout */
+    gap: 1rem; /* Space between items */
+    width: 100%; /* Full width */
+  }
+
+  .team {
+    width: 100%; /* Full width */
+    margin-bottom: 1rem; /* Increase bottom margin */
+  }
+  
+  .teamname, .pts, .time {
+    font-size: 1rem; /* Adjust font size */
+    text-align: center; /* Center the text */
+    margin: 0.3rem 0; /* Reduce space between columns */
+  }
+}

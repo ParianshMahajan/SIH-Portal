@@ -869,34 +869,6 @@ h1 {
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .teamname, .pts, .time {
-    font-size: 1rem; /* Further adjust font size for very small screens */
-    text-align: center;
-    overflow: visible; /* Ensure text is fully visible */
-    word-break: break-word; /* Break long words */
-  }
-
-  .team {
-    padding: 0.5rem; /* Reduce padding */
-  }
-
-  .teamname {
-    width: 100%; /* Full width */
-    font-size: 1rem; /* Adjust font size */
-  }
-
-  .pts {
-    width: 100%; /* Full width */
-    font-size: 1rem; /* Adjust font size */
-  }
-
-  .time {
-    width: 100%; /* Full width */
-    font-size: 1rem; /* Adjust font size */
-  }
-}
-
 @media only screen and (max-width: 768px) {
   .reg {
     margin-top: 5vh; /* 5% of viewport height */
@@ -1006,6 +978,35 @@ h1 {
   width: 17.5%; /* Reduce the width of the other divs to make space for the "Tech Stack" */
   
 }
+
+@media only screen and (max-width: 600px) {
+  .teamname, .pts, .time {
+    font-size: 1rem; /* Further adjust font size for very small screens */
+    text-align: center;
+    overflow: visible; /* Ensure text is fully visible */
+    word-break: break-word; /* Break long words */
+  }
+
+  .team {
+    padding: 0.5rem; /* Reduce padding */
+  }
+
+  .teamname {
+    width: 100%; /* Full width */
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .pts {
+    width: 100%; /* Full width */
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .time {
+    width: 100%; /* Full width */
+    font-size: 1rem; /* Adjust font size */
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .kuchbhi {
     display: flex;
@@ -1040,5 +1041,64 @@ h1 {
   .teamname.tableHeader.techStackHeading,
   .teamname.techStackHeading {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .leaderboardcont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #3c3c3c;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 48%;
+    margin: 0.5rem 0;
+  }
+
+  .teamname.tableHeader.techStackHeading,
+  .teamname.techStackHeading,
+  .teamname,
+  .pts,
+  .time {
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .teamname, .pts, .time {
+    font-size: 1rem;
+    text-align: center;
+    overflow: visible;
+    word-break: break-word;
+  }
+
+  .team {
+    padding: 0.5rem;
+    flex-direction: column;
+    width: 100%;
+    margin: 1rem 0;
+    overflow-y: hidden;
+  }
+
+  .teamname {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .pts {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .time {
+    width: 100%;
+    font-size: 1rem;
   }
 }

@@ -1,8 +1,6 @@
 const express=require('express');
 const { createTeam,joinTeam, verifyTeam,info,login,TeamSubmit,fetchTeams,testing, displayTeamLB, deleteMem } = require('../controllers/userFuncs');
-const crypto=require('crypto');
 const { protectlink } = require('../middleware/protectlink');
-const path = require('path');
 
 
 const userRouter=express.Router();

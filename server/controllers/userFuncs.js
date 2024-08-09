@@ -265,7 +265,7 @@ module.exports.login=async function login(req,res){
 
         let users=await User.find({TeamName:data.TeamName})
         
-
+        console.log(team);
 
         if(team){
             if(team.Password==data.Password){
@@ -344,10 +344,14 @@ module.exports.TeamSubmit=async function TeamSubmit(req,res){
 module.exports.displayTeamLB=async function displayTeamLB(req,res) {
     try {
         
-        let team= await team.findOne
-    
+        let teamns= await Team.findOne({TeamName:req.body.TeamName});
+        teamns.Submitted=req.body.status;
+        await teamns.save();
+        
+        console.log(teamns);
         res.json({
-    
+            status:true,
+            message:"Team is submitted successfully"
         });
     } catch (error) {
         res.json({
@@ -362,7 +366,7 @@ module.exports.displayTeamLB=async function displayTeamLB(req,res) {
 
 module.exports.fetchTeams=async function fetchTeams(req,res){
     try {
-        let teams=await Team.find({Submitted:false});
+        let teams=await Team.find({Submitted:true});
         teams=teams.filter((e)=>{
             if(e.Members.length!=6){
                 return e;

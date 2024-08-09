@@ -114,6 +114,30 @@ const Members = () => {
   }
 
 
+
+  const handleRemoveMem=async(element)=>{
+    console.log(element);
+    try {
+      const response = await axios.post(api_url + '/register/deleteMem', {
+        Email: element.Email,
+        TeamName: details.TeamName
+      });
+      console.log(response);
+      if(response.data.status){
+        setDetails(response.data);
+        console.log(response.data.isTeamDel);
+        if(response.data.isTeamDel){
+          navigate('/register');
+        }
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+
   return (
     <div className="wrapper">
       <div className="two" id="two">
@@ -145,7 +169,7 @@ const Members = () => {
           <form onSubmit={(e) => submit(e)}>
             <div className="formrow cntr" style={{flexDirection:'column'}}>
               <input onChange={(e) => handle(e)} placeholder="Team Name" value={data.TeamName} type="text" id="TeamName" name="TeamName" required />
-              <input onChange={(e) => handle(e)} placeholder="Password" value={data.Password} type="text" id="Password" name="Password" required />
+              <input onChange={(e) => handle(e)} placeholder="Password" value={data.Password} type="password" id="Password" name="Password" required />
             </div>
 
             <button type="submit" className="join submit">
@@ -210,16 +234,15 @@ const Members = () => {
         </div>
 
           <div className="leaderboardcont" style={{marginTop:"0%"}}>{
-            details.Members.map((e,index)=>{
+            details.Members.map((e)=>{
               return(
 
                 <div className="team memberRow">
-                        <h5 className="teamname" style={{width:"8%"}} >{index}.</h5>
                         <h5 className="teamname" style={{width:"36%"}} >{e.Name}</h5>
                         <h5 className="teamname" style={{width:"36%"}}>{e.PhoneNumber}</h5>
                         <h5 className="teamname" style={{width:"8%"}} >{(e.Gender=="Male"?'M':'F')}</h5>
-                        <button className="deleteIcon">
-                          <DeleteIcon />
+                        <button className="deleteIcon" onClick={()=>handleRemoveMem(e)}>
+                          <DeleteIcon className="delicon" />
                         </button>
                     </div>                
                 )
@@ -230,9 +253,6 @@ const Members = () => {
         
           </>
         }
-
- 
-
 
 
       </div>

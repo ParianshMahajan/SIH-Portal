@@ -213,7 +213,9 @@ module.exports.joinTeam=async function joinTeam(req,res){
                 await team.save()
                 res.json({
                     status:true,
+                    TeamName:team.TeamName,
                     message:"Member registered successfully",
+
                 });
             }
                 else{
@@ -229,6 +231,7 @@ module.exports.joinTeam=async function joinTeam(req,res){
                 await team.save()
                 res.json({
                     status:true,
+                    TeamName:team.TeamName,
                     message:"Member registered successfully",
                 });
         }
@@ -390,6 +393,39 @@ module.exports.fetchTeams=async function fetchTeams(req,res){
 
 }
 
+
+module.exports.deleteMem=async function deleteMem(req,res) {
+    try {
+        let userns=await User.findOne({Email:req.body.Email});
+        let teamns= await Team.findOne({TeamName:req.body.TeamName});
+
+        let index=teamns.Members.indexOf(userns._id);
+        teamns.Members.splice(index,1);
+        await teamns.save();
+        await User.deleteOne({Email:req.body.Email});
+        
+        let isTeamDel=false;
+        if(teamns.Members.length===0){
+            await Team.deleteOne({TeamName:req.body.TeamName});
+            isTeamDel=true;
+        }
+        
+        let users=await User.find({TeamName:req.body.TeamName})
+
+        res.json({
+            status:true,
+            message:"Member deleted successfully",
+            Members:users,
+            isTeamDel:isTeamDel,
+            submitted:teamns.Submitted,
+            TeamName:req.body.TeamName
+        });
+    } catch (error) {
+        res.json({
+            message:error.message
+        })
+    }
+}
 
 
 

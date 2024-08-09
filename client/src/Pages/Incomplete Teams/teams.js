@@ -62,9 +62,10 @@ const Teams = () => {
           </div>
         </div>
 
+       
         <div className="kuchbhi">
           <div className="leaderboardcont">
-            <div className="team" style={{ border: "none", boxShadow: "none" }}>
+            <div className="team teamrow" style={{ border: "none", boxShadow: "none" }}>
               <div className="teamname tableHeader">TeamName</div>
             <div className="teamname tableHeader techStackHeading">Tech Stack</div>
               <div className="teamname tableHeader">Contact</div>
@@ -72,7 +73,7 @@ const Teams = () => {
               <div className="time tableHeader">Female Member</div>
             </div>
             {data.map((e) => (
-              <div className="team" key={e.TeamName}>
+              <div className="team teamrow" key={e.TeamName}>
                 <div className="teamname">{e.TeamName}</div>
                 <div className="teamname techStackHeading">{e.TechStack}</div>
                 

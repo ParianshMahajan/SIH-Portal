@@ -829,6 +829,7 @@ h1 {
   font-size: 1.5rem;
   transition: ease-in-out 150ms;
   cursor: pointer;
+
 }
 
 .checkDisp>p{
@@ -943,5 +944,9 @@ h1 {
     text-align: center; /* Center the text */
     margin: 0.3rem 0; /* Reduce space between columns */
     font-size: 1rem; /* Adjust font size */
+  }
+  .checkDisp{
+    font-size: 1rem;
+    margin-bottom: 3rem;
   }
 }

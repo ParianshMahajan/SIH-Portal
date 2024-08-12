@@ -25,7 +25,7 @@ const Teams = () => {
   }, []);
 
   const handleCheckboxChange = (event) => {
-    setShowNoFemaleTeams(event.target.checked);
+    setShowNoFemaleTeams(event.target.checked||!showNoFemaleTeams);
   };
 
   const filteredTeams = showNoFemaleTeams
@@ -63,14 +63,16 @@ const Teams = () => {
                 <th className="teamname tableHeader">Contact</th>
                 <th className="pts tableHeader">Members</th>
                 <th className="time tableHeader">
-                <input
-                    type="checkbox"
-                    id="filterNoFemales"
-                    checked={showNoFemaleTeams}
-                    onChange={handleCheckboxChange}
-                    className="header-checkbox"
+                  <input
+                      type="checkbox"
+                      id="filterNoFemales"
+                      checked={showNoFemaleTeams}
+                      onChange={handleCheckboxChange}
+                      className="header-checkbox"
                   />
-                  Female Member
+                  <p className="femMem" style={{padding:0,margin:0,cursor:"pointer"}} onClick={handleCheckboxChange}>
+                    Female Member
+                  </p>
                 </th>
               </tr>
             </thead>

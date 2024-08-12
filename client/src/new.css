@@ -499,6 +499,7 @@ select:-webkit-autofill:focus {
   font-size: 1.5rem;
 }
 
+
 /* Responsive adjustments */
 @media only screen and (max-width: 600px) {
   .teamname,
@@ -1072,12 +1073,18 @@ h1 {
 .tableHeader {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 /* Responsive styling for small screens */
 @media only screen and (max-width: 600px) {
   .header-checkbox {
     transform: scale(1); /* Adjust size of the checkbox for smaller screens */
+  }
+}
+
+@media only screen and (min-width: 855px) {
+  .femMem{
+    width: 130px;
   }
 }

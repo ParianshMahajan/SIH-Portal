@@ -356,7 +356,9 @@ module.exports.displayTeamLB=async function displayTeamLB(req,res) {
     try {
         
         let teamns= await Team.findOne({TeamName:req.body.TeamName});
-        teamns.Submitted=req.body.status;
+        if(teamns.Members.length!=6){
+            teamns.Submitted=req.body.status;
+        }
         await teamns.save();
         
         console.log(teamns);

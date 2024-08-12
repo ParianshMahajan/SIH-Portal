@@ -955,7 +955,12 @@ h1 {
 
 */
 
-
+@media only screen and (max-width: 600px) {
+  .checkDisp{
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+}
 
 
 /* Ensure table and cell styles align with original design */

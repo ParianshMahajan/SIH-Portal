@@ -475,7 +475,7 @@ select:-webkit-autofill:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
- }
+}
 /* Reset the background color and box shadow for the table rows */
 .team {
   display: flex;
@@ -671,133 +671,133 @@ h1 {
     }
   }
   
-  /* Further adjustments for screens 600px and below */
-  @media only screen and (max-width: 1000px) {
+ 
+  /* @media only screen and (max-width: 1000px) {
     .team {
-      padding: 0.5rem; /* Reduce padding */
-      flex-direction: column; /* Stack items vertically */
-      width: 80%; /* Full width */
+      padding: 0.5rem; 
+      flex-direction: column; 
+      width: 80%; 
       
       margin: 1rem 1rem;
       margin-left: 1rem;
     }
   
     .teamname, .pts, .time {
-      font-size: 1rem; /* Adjust font size */
-      text-align: center; /* Center the text */
-      margin: 0.3rem 0; /* Reduce space between columns */
+      font-size: 1rem; 
+      text-align: center; 
+      margin: 0.3rem 0; 
     }
   
-    /* For two-column layout on screens 600px and below */
+    
     .leaderboardcont {
       display: grid;
-      grid-template-columns: 1fr 1fr; /* Two columns */
-      gap: 1rem; /* Space between columns */
-      width: 100%; /* Full width */
+      grid-template-columns: 1fr 1fr; 
+      gap: 1rem; 
+      width: 100%;
     }
   
     .team {
-      margin: 0; /* Remove margin */
-      border: 1px solid #00a1b1; /* Border around the team */
-      border-radius: 5px; /* Slightly round corners */
+      margin: 0; 
+      border: 1px solid #00a1b1; 
+      border-radius: 5px; 
     }
   
-    /* Further adjust text and input styles */
+    
     .formrow > input, .formrow > select {
-      width: 100%; /* Full width */
-      font-size: 1rem; /* Adjust font size */
-      box-sizing: border-box; /* Include padding/border in width/height */
-      padding: 1rem; /* Consistent padding */
-      margin: 0.5rem 0; /* Adjust margin */
+      width: 100%; 
+      font-size: 1rem; 
+      box-sizing: border-box; 
+      padding: 1rem; 
+      margin: 0.5rem 0; 
     }
   }
+   */
   
-  
-  /* Responsive styles for screens 600px and below */
+  /* Responsive styles for screens 600px and below 
 @media only screen and (max-width: 600px) {
     .team {
-      padding: 0.5rem; /* Reduce padding */
-      flex-direction: column; /* Stack items vertically */
-      width: 100%; /* Full width */
-      margin-bottom: 1rem; /* Increase bottom margin */
+      padding: 0.5rem; 
+      flex-direction: column; 
+      width: 100%; 
+      margin-bottom: 1rem; 
     }
   
     .teamname, .pts, .time {
-      font-size: 1rem; /* Adjust font size */
-      text-align: center; /* Center the text */
-      margin: 0.3rem 0; /* Reduce space between columns */
+      font-size: 1rem; 
+      text-align: center; 
+      margin: 0.3rem 0; 
     }
   
-    /* Adjust the leaderboard container for a single column layout */
+    
     .leaderboardcont {
       display: grid;
-      grid-template-columns: 1fr; /* One column layout */
-      gap: 1rem; /* Space between items */
-      width: 100%; /* Full width */
+      grid-template-columns: 1fr;
+      gap: 1rem; 
+      width: 100%; 
     }
   
     .team {
-      margin: 0; /* Remove margin */
-      border: 1px solid #00a1b1; /* Border around the team */
-      border-radius: 5px; /* Slightly round corners */
+      margin: 0; 
+      border: 1px solid #00a1b1;
+      border-radius: 5px; 
     }
   
-    /* Further adjust text and input styles */
+    
     .formrow > input, .formrow > select {
-      width: 100%; /* Full width */
-      font-size: 1rem; /* Adjust font size */
-      box-sizing: border-box; /* Include padding/border in width/height */
-      padding: 1rem; /* Consistent padding */
-      margin: 0.5rem 0; /* Adjust margin */
+      width: 100%;
+      font-size: 1rem; 
+      box-sizing: border-box; 
+      padding: 1rem;
+      margin: 0.5rem 0; 
     }
   }
-  
-  /* Responsive adjustments */
+  */
+  /* Responsive adjustments 
 @media only screen and (max-width: 1000px) {
   .leaderboardcont {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 1rem; /* Space between columns */
-    width: 100%; /* Full width */
+    grid-template-columns: 1fr 1fr; 
+    gap: 1rem; 
+    width: 100%;
   }
 
   .team {
-    padding: 0.5rem; /* Reduce padding */
-    flex-direction: column; /* Stack items vertically */
-    width: 80%; /* Adjust width */
-    margin: 1rem auto; /* Center items horizontally */
-    border: 1px solid #00a1b1; /* Border around the team */
-    border-radius: 5px; /* Slightly round corners */
+    padding: 0.5rem; 
+    flex-direction: column; 
+    width: 80%;
+    margin: 1rem auto; 
+    border: 1px solid #00a1b1;
+    border-radius: 5px; 
   }
 
   .teamname, .pts, .time {
-    font-size: 1rem; /* Adjust font size */
-    text-align: center; /* Center the text */
-    margin: 0.3rem 0; /* Reduce space between columns */
+    font-size: 1rem; 
+    text-align: center; 
+    margin: 0.3rem 0; 
   }
 }
-
-/* Responsive styles for screens 600px and below */
+*/
+/* Responsive styles for screens 600px and below 
 @media only screen and (max-width: 600px) {
   .leaderboardcont {
-    grid-template-columns: 1fr; /* One column layout */
-    gap: 1rem; /* Space between items */
-    width: 95%; /* Full width */
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+    width: 95%; 
   }
 
   .team {
-    width: 95%; /* Full width */
-    margin-bottom: 1rem; /* Increase bottom margin */
+    width: 95%;
+    margin-bottom: 1rem; 
   }
   
   .teamname, .pts, .time {
-    font-size: 1rem; /* Adjust font size */
-    text-align: center; /* Center the text */
-    margin: 0.3rem 0; /* Reduce space between columns */
+    font-size: 1rem; 
+    text-align: center; 
+    margin: 0.3rem 0; 
   }
 }
 
-
+*/
 
 
 
@@ -900,54 +900,184 @@ h1 {
 
 
 
-/* Styles for screens 1000px and below */
+/* Styles for screens 1000px and below 
 @media only screen and (max-width: 1000px) {
   .leaderboardcont {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 1rem; /* Space between columns */
-    width: 90%; /* Full width */
+    grid-template-columns: 1fr 1fr; 
+    gap: 1rem; 
+    width: 90%; 
   }
 
   .team {
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center align the items */
-    width: 90%; /* Full width */
-    margin: 1rem 0; /* Margin adjustments */
+    flex-direction: column; 
+    align-items: center;
+    width: 90%; 
+    margin: 1rem 0; 
   }
 
   .teamname, .pts, .time {
-    width: 90%; /* Full width for each item */
-    text-align: center; /* Center the text */
-    margin: 0.3rem 0; /* Reduce space between columns */
-    font-size: 1rem; /* Adjust font size */
+    width: 90%; 
+    text-align: center; 
+    margin: 0.3rem 0;
+    font-size: 1rem; 
   }
 }
-
-/* Styles for screens 600px and below */
+*/
+/* Styles for screens 600px and below 
 @media only screen and (max-width: 600px) {
   .leaderboardcont {
     display: grid;
-    grid-template-columns: 1fr; /* Single column layout */
-    gap: 1rem; /* Space between columns */
-    width: 90%; /* Full width */
+    grid-template-columns: 1fr;
+    gap: 1rem; 
+    width: 90%;
   }
 
   .team {
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center align the items */
-    width: 90%; /* Full width */
-    margin: 1rem 0; /* Margin adjustments */
+    flex-direction: column;
+    align-items: center; 
+    width: 90%; 
+    margin: 1rem 0;
   }
 
   .teamname, .pts, .time {
-    width: 90%; /* Full width for each item */
-    text-align: center; /* Center the text */
-    margin: 0.3rem 0; /* Reduce space between columns */
-    font-size: 1rem; /* Adjust font size */
+    width: 90%; 
+    text-align: center;
+    margin: 0.3rem 0; 
+    font-size: 1rem; 
   }
   .checkDisp{
     font-size: 1rem;
     margin-bottom: 3rem;
+  }
+}
+
+*/
+
+
+
+
+/* Ensure table and cell styles align with original design */
+.leaderboardTable {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  color: white;
+}
+
+.leaderboardTable th,
+.leaderboardTable td {
+  padding: 12px;
+  
+  text-align: center;
+  font-family: macer;
+  font-size: 1.5rem;
+}
+
+/* Header row specific styles */
+.tableHeader {
+  color: #00a1b1;
+}
+
+/* Specific column styles */
+.teamname {
+  width: 45%;
+  text-align: center;
+}
+
+.pts {
+  width: 20%;
+}
+
+.time {
+  width: 10%;
+}
+
+/* Responsive styles 
+@media only screen and (max-width: 600px) {
+  .teamname, .pts, .time {
+    font-size: 1rem;
+  }
+
+  .leaderboardTable {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .leaderboardTable th,
+  .leaderboardTable td {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+}
+*/
+/* For screens smaller than 600px, reduce font size for better visibility */
+@media (max-width: 600px) {
+  .leaderboardTable {
+    font-size: 0.75rem; /* Adjust as needed */
+  }
+  
+  .leaderboardTable th,
+  .leaderboardTable td {
+    padding: 0.5rem; /* Adjust padding for better spacing */
+  }
+  
+  .leaderboardTable .teamname,
+  .leaderboardTable .pts,
+  .leaderboardTable .time {
+    font-size: 0.7rem; /* Slightly smaller for tight content */
+  }
+
+  .leaderboardTable .techStackHeading {
+    font-size: 0.65rem; /* Even smaller for potential long tech stack names */
+  }
+  
+  .teamrow {
+    height: auto; /* Ensure rows adjust their height based on content */
+  }
+}
+.typography-message {
+  margin-bottom: 2rem;
+  text-align: center;
+  color: white;
+  font-family: 'macer', sans-serif !important;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+@media only screen and (max-width: 600px) {
+  .wrapper .typography-message {
+    font-size: 0.6rem; 
+    font-family: 'macer', sans-serif !important;
+    margin: 0.5rem auto;
+    align-items: center;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+    width: 70%;
+  }
+  .navigation{
+    margin: 0.5rem auto;
+  }
+}
+/* CSS for checkbox inside the table header */
+.header-checkbox {
+   
+  cursor: pointer; /* Pointer cursor on hover */
+  transform: scale(1.2); /* Increase size of the checkbox */
+  accent-color: #00a1b1; /* Change color of the checkbox when checked */
+}
+
+/* Ensures the table header layout is not disturbed */
+.tableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Responsive styling for small screens */
+@media only screen and (max-width: 600px) {
+  .header-checkbox {
+    transform: scale(1); /* Adjust size of the checkbox for smaller screens */
   }
 }

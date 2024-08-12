@@ -2,18 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { api_url } from "../../config";
-import { Divider, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 const Teams = () => {
   const [data, setTeams] = useState([]);
+  const [showNoFemaleTeams, setShowNoFemaleTeams] = useState(false);
   const navigate = useNavigate();
   const url = api_url + "/register/fetch";
 
   const fetchTeams = () => {
     axios
-      .post(url, {
-        message: "hi",
-      })
+      .post(url, { message: "hi" })
       .then((res) => {
         if (res.data.status) {
           setTeams(res.data.Teams);
@@ -25,68 +24,68 @@ const Teams = () => {
     fetchTeams();
   }, []);
 
+  const handleCheckboxChange = (event) => {
+    setShowNoFemaleTeams(event.target.checked);
+  };
+
+  const filteredTeams = showNoFemaleTeams
+    ? data.filter((team) => !team.female)
+    : data;
+
   return (
     <div className="wrapper">
       <div className="two" id="two">
-        <h1
-          id="registration"
-          className="reg"
-          style={{
-            margin: "2% 0% 0% 0%",
-            letterSpacing: "0px",
-            fontWeight: "1500",
-          }}
-        >
+        <h1 id="registration" className="reg">
           Available Teams
         </h1>
-        <div
-          className="regform"
-          style={{
-            display: "flex",
-            float: "left",
-            justifyContent: "start",
-            margin: "-4.1% 5% 1% 4%",
-          }}
-        >
-          <div className="formrow btcenter">
-            <div className="container" id="container">
-              <div className="hister">
-                <button className="learn-more" onClick={() => navigate("/register")}>
-                  <span className="circle" aria-hidden="true">
-                    <span className="icon arrow"></span>
-                  </span>
-                  <span className="button-text">Home</span>
-                </button>
-              </div>
-            </div>
-          </div>
+        <Typography variant="h6" className="typography-message">
+          * To make a team visible here, go to the team details section
+        </Typography>
+        
+        <div className="navigation">
+          <button
+            className="learn-more"
+            onClick={() => navigate("/register")}
+          >
+            <span className="circle" aria-hidden="true">
+              <span className="icon arrow"></span>
+            </span>
+            <span className="button-text">Home</span>
+          </button>
         </div>
-
-          <Typography variant="h6" sx={{ mb:2,textAlign: "center",color:"white" }}>
-            * To make a team visible here, go to the team details section
-          </Typography>
-        <div className="kuchbhi">
-          <div className="leaderboardcont">
-            <div className="team teamrow" style={{ border: "none", boxShadow: "none" }}>
-              <div className="teamname tableHeader">TeamName</div>
-              <div className="teamname tableHeader techStackHeading">Tech Stack</div>
-              <div className="teamname tableHeader">Contact</div>
-              <div className="pts tableHeader">Members</div>
-              <div className="time tableHeader">Female Member</div>
-            </div>
-            <hr style={{width:"100%",border:"1px solid rgba(255, 255, 255, 0.69)",marginTop:"8px"}} />
-            {data.map((e) => (
-              <div className="team teamrow" key={e.TeamName}>
-                <div className="teamname">{e.TeamName}</div>
-                <div className="teamname techStackHeading">{e.TechStack}</div>
-                
-                <div className="teamname">{e.PhoneNumber}</div>
-                <div className="pts">{`${e.Members.length}/6`}</div>
-                <div className="time">{e.female ? "Yes" : "No"}</div>
-              </div>
-              
-            ))}
-          </div>
+        
+        <div className="team-list">
+          <table className="leaderboardTable">
+            <thead>
+              <tr className="team teamrow">
+                <th className="teamname tableHeader">Team Name</th>
+                <th className="teamname tableHeader techStackHeading">Tech Stack</th>
+                <th className="teamname tableHeader">Contact</th>
+                <th className="pts tableHeader">Members</th>
+                <th className="time tableHeader">
+                <input
+                    type="checkbox"
+                    id="filterNoFemales"
+                    checked={showNoFemaleTeams}
+                    onChange={handleCheckboxChange}
+                    className="header-checkbox"
+                  />
+                  Female Member
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredTeams.map((e) => (
+                <tr className="team teamrow" key={e.TeamName}>
+                  <td className="teamname">{e.TeamName}</td>
+                  <td className="teamname techStackHeading">{e.TechStack}</td>
+                  <td className="teamname">{e.PhoneNumber}</td>
+                  <td className="pts">{`${e.Members.length}/6`}</td>
+                  <td className="time">{e.female ? "Yes" : "No"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

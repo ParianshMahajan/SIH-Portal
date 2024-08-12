@@ -18,8 +18,6 @@ const Members = () => {
 
   const [details, setDetails] = useState({})
   const [showMem, setShowMem] = useState(false)
-  const [butt, showButt] = useState(false)
-  const [mssg, showMssg] = useState(false)
 
 
   const url = api_url + '/register/login';
@@ -48,6 +46,9 @@ const Members = () => {
   }
 
 
+
+  const[showDisabled,setShowDisabled]=useState(false);
+
   function submit(e) {
     form(false);
     setLoader(true);
@@ -60,7 +61,6 @@ const Members = () => {
         Password: data.Password
       })
         .then(res => {
-          console.log(res);
           if (res.data.status) {
             setLoader(false);
             setDetails(res.data)
@@ -69,7 +69,10 @@ const Members = () => {
             form(false)
             setShowMem(true)
             if(res.data.Members.length==6){
-              showButt(true);
+              setShowDisabled(true);
+            }
+            else{
+              setShowDisabled(false);
             }
           }
           else {
@@ -116,16 +119,19 @@ const Members = () => {
 
 
   const handleRemoveMem=async(element)=>{
-    console.log(element);
     try {
       const response = await axios.post(api_url + '/register/deleteMem', {
         Email: element.Email,
         TeamName: details.TeamName
       });
-      console.log(response);
       if(response.data.status){
         setDetails(response.data);
-        console.log(response.data.isTeamDel);
+        if(response.data.Members.length==6){
+          setShowDisabled(true);
+        }
+        else{
+          setShowDisabled(false);
+        }
         if(response.data.isTeamDel){
           navigate('/register');
         }
@@ -207,11 +213,14 @@ const Members = () => {
           <Box sx={{display:"flex",justifyContent:"center",width:1}} mb={2}>
             <button
                 className="checkDisp"
-                style={{background:checked ? "#00a1b1" : ""} }
+                style={{background:checked ? "#00a1b1" : "",
+                    opacity:isPending || showDisabled ?0.15:1,
+                    pointerEvents: isPending || showDisabled  ? "none" : "initial"    
+                } }
                 onClick={() => {
                   handleClick();
                 }}
-                disabled={isPending}
+                disabled={isPending || showDisabled }
                 >
                   <p>
                     Looking.For.Members

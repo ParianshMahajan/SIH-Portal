@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { api_url } from "../../config";
+import { Divider, Typography } from "@mui/material";
 
 const Teams = () => {
   const [data, setTeams] = useState([]);
@@ -14,7 +15,6 @@ const Teams = () => {
         message: "hi",
       })
       .then((res) => {
-        console.log(res);
         if (res.data.status) {
           setTeams(res.data.Teams);
         }
@@ -62,16 +62,19 @@ const Teams = () => {
           </div>
         </div>
 
-       
+          <Typography variant="h6" sx={{ mb:2,textAlign: "center",color:"white" }}>
+            * To make a team visible here, go to the team details section
+          </Typography>
         <div className="kuchbhi">
           <div className="leaderboardcont">
             <div className="team teamrow" style={{ border: "none", boxShadow: "none" }}>
               <div className="teamname tableHeader">TeamName</div>
-            <div className="teamname tableHeader techStackHeading">Tech Stack</div>
+              <div className="teamname tableHeader techStackHeading">Tech Stack</div>
               <div className="teamname tableHeader">Contact</div>
               <div className="pts tableHeader">Members</div>
               <div className="time tableHeader">Female Member</div>
             </div>
+            <hr style={{width:"100%",border:"1px solid rgba(255, 255, 255, 0.69)",marginTop:"8px"}} />
             {data.map((e) => (
               <div className="team teamrow" key={e.TeamName}>
                 <div className="teamname">{e.TeamName}</div>
@@ -81,6 +84,7 @@ const Teams = () => {
                 <div className="pts">{`${e.Members.length}/6`}</div>
                 <div className="time">{e.female ? "Yes" : "No"}</div>
               </div>
+              
             ))}
           </div>
         </div>

@@ -210,6 +210,11 @@ module.exports.joinTeam=async function joinTeam(req,res){
             if(team.female){
                 user=await User.create(member);
                 team.Members.push(user._id)
+
+                if(team.Members.length==6){
+                    team.Submitted=true;
+                }
+
                 await team.save()
                 res.json({
                     status:true,
@@ -228,6 +233,11 @@ module.exports.joinTeam=async function joinTeam(req,res){
         else if(team.Members.length<5){
                 user=await User.create(member);
                 team.Members.push(user._id)
+                
+                if(team.Members.length==6){
+                    team.Submitted=true;
+                }
+                
                 await team.save()
                 res.json({
                     status:true,
@@ -268,7 +278,6 @@ module.exports.login=async function login(req,res){
 
         let users=await User.find({TeamName:data.TeamName})
         
-        console.log(team);
 
         if(team){
             if(team.Password==data.Password){
@@ -320,7 +329,6 @@ module.exports.TeamSubmit=async function TeamSubmit(req,res){
     try {
         let data=req.body
         let team=await Team.findOne({TeamName:data.TeamName})
-
 
 
         if(team){

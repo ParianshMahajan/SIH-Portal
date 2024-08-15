@@ -14,7 +14,9 @@ const app=express();
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());  
+app.use(express.static(path.join(__dirname, 'public')));
 
+global.appRoot = path.resolve(__dirname);
 
 
 
@@ -25,8 +27,7 @@ app.use('/register',userRouter);
 
 
 
-
+    
 const port = process.env.PORT || 3001;
-const host = '127.0.0.1';
 
-app.listen(port, host, () => console.log(`http://${host}:${port}`));
+app.listen(port, () => console.log(`http://localhost:${port}`));

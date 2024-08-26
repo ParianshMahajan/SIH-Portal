@@ -389,6 +389,7 @@ module.exports.fetchTeams=async function fetchTeams(req,res){
         };
         
         let teams=await Team.find({Submitted:true},projection);
+        
         teams=teams.filter((e)=>{
             if(e.Members.length!=6){
                 return e;

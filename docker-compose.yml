@@ -2,12 +2,12 @@ version: "3.4"
 
 services:
   api:
-    image: ccs/raptus-api
+    image: ccs/sih-24
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - "2123:2123"
+      - "8789:8789"
     volumes:
       - ./logs/:/app/logs/
     restart: always

@@ -379,7 +379,18 @@ module.exports.displayTeamLB=async function displayTeamLB(req,res) {
 
 module.exports.fetchTeams=async function fetchTeams(req,res){
     try {
-        let teams=await Team.find({Submitted:true});
+        const projection = {
+            TeamName: 1,
+            Submitted: 1,
+            female:1,
+            TechStack:1,
+            _id: 1,
+            Members:1,
+            PhoneNumber:1, 
+        };
+        
+        let teams=await Team.find({Submitted:true},projection);
+
         teams=teams.filter((e)=>{
             if(e.Members.length!=6){
                 return e;

@@ -6,10 +6,7 @@ dotenv.config({ path: "./config.env" });
 
 // dotenv.config({ path: '../.env' });
 
-const DB = process.env.DATABASE.replace("<username>", process.env.USER).replace(
-  "<password>",
-  process.env.PASSWORD
-);
+const DB = process.env.DATABASE
 
 mongoose
   .connect(DB)
